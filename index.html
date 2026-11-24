@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LAST ASYLUM — TNT Asylum | Grupo B</title>
+  <title>LAST ASYLUM — Estrategia Elixir Race | TNT Asylum</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
       --bg-base: #07080a;
       --bg-surface: #0f1116;
-      --bg-card: rgba(20, 23, 30, 0.78);
+      --bg-card: rgba(20, 23, 30, 0.85);
       --crimson: #b81d24;
       --crimson-glow: rgba(184, 29, 36, 0.45);
       --crimson-bright: #e52e36;
+      --gold: #d4a338;
+      --gold-bg: rgba(212, 163, 56, 0.12);
       --text-primary: #f1f3f5;
-      --text-secondary: #9aa1ac;
-      --border-subtle: rgba(255, 255, 255, 0.08);
+      --text-secondary: #a3aab5;
+      --border-subtle: rgba(255, 255, 255, 0.09);
       --border-crimson: rgba(184, 29, 36, 0.45);
     }
 
@@ -46,16 +48,17 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
+    /* Navegación */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
-      padding: 18px 6%;
+      padding: 16px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(7, 8, 10, 0.85);
+      background: rgba(7, 8, 10, 0.9);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-subtle);
     }
@@ -89,7 +92,7 @@
 
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 28px;
       list-style: none;
     }
 
@@ -107,17 +110,18 @@
       color: #fff;
     }
 
+    /* Header / Portada */
     header {
       position: relative;
-      min-height: 100vh;
+      min-height: 75vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 120px 20px 80px;
+      padding: 130px 20px 70px;
       background: 
-        radial-gradient(circle at 50% 45%, rgba(184, 29, 36, 0.24) 0%, rgba(7, 8, 10, 0.96) 65%),
+        radial-gradient(circle at 50% 45%, rgba(184, 29, 36, 0.25) 0%, rgba(7, 8, 10, 0.96) 68%),
         linear-gradient(180deg, #0b0d12 0%, #07080a 100%);
       border-bottom: 1px solid var(--border-subtle);
     }
@@ -135,17 +139,17 @@
       font-weight: 600;
       letter-spacing: 2.5px;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     header h1 {
       font-family: 'Cinzel', serif;
-      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
       font-weight: 800;
-      letter-spacing: 8px;
+      letter-spacing: 6px;
       text-transform: uppercase;
-      line-height: 1.05;
-      margin-bottom: 20px;
+      line-height: 1.08;
+      margin-bottom: 18px;
       background: linear-gradient(180deg, #ffffff 30%, #9aa1ac 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -153,24 +157,17 @@
     }
 
     header p {
-      max-width: 640px;
+      max-width: 680px;
       color: var(--text-secondary);
       font-size: 1.15rem;
       font-weight: 300;
-      margin-bottom: 40px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      justify-content: center;
+      margin-bottom: 34px;
     }
 
     .btn-primary {
       background: var(--crimson);
       color: #fff;
-      padding: 16px 36px;
+      padding: 15px 34px;
       font-family: 'Oswald', sans-serif;
       font-size: 1.05rem;
       letter-spacing: 2px;
@@ -185,37 +182,18 @@
     .btn-primary:hover {
       background: var(--crimson-bright);
       transform: translateY(-2px);
-      box-shadow: 0 12px 35px rgba(229, 46, 54, 0.6);
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-primary);
-      padding: 16px 32px;
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.05rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 4px;
-      border: 1px solid var(--border-subtle);
-      transition: all 0.3s ease;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.25);
-    }
-
+    /* Secciones */
     section {
       max-width: 1140px;
       margin: 0 auto;
-      padding: 100px 24px;
+      padding: 80px 24px;
       border-bottom: 1px solid var(--border-subtle);
     }
 
     .section-header {
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
     .section-kicker {
@@ -230,147 +208,196 @@
 
     .section-header h2 {
       font-family: 'Oswald', sans-serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-size: clamp(1.9rem, 4vw, 2.7rem);
       text-transform: uppercase;
       letter-spacing: 2px;
       color: #fff;
+      margin-bottom: 12px;
     }
 
-    .grid-3 {
+    .intro-callout {
+      background: rgba(184, 29, 36, 0.08);
+      border-left: 4px solid var(--crimson-bright);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      font-size: 1.05rem;
+      color: #e2e6ec;
+      margin-bottom: 40px;
+    }
+
+    /* Grid de los 5 Grupos */
+    .groups-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 24px;
     }
 
-    .card {
+    .group-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      padding: 32px;
+      padding: 28px;
       border-radius: 8px;
-      backdrop-filter: blur(8px);
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease;
       position: relative;
-      overflow: hidden;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--crimson-bright), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
+    .group-card:hover {
+      transform: translateY(-4px);
       border-color: var(--border-crimson);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     }
 
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card-num {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.85rem;
-      color: var(--crimson-bright);
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    .card h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.45rem;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-      color: #fff;
-    }
-
-    .card p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
-
-    .split-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      margin-top: 50px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 40px;
-    }
-
-    .key-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .key-item {
+    .group-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 16px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 12px;
     }
 
-    kbd {
-      background: #1a1e26;
-      border: 1px solid #353c4a;
-      border-bottom-width: 3px;
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 0.9rem;
+    .group-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
       color: #fff;
-      font-weight: bold;
     }
 
-    .member-role {
+    .player-badge {
+      background: var(--crimson);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .group-card p, .group-card li {
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+    }
+
+    .group-card strong {
+      color: #fff;
+    }
+
+    .sub-list {
+      margin-top: 12px;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Jugadores adicionales (16 al 19) */
+    .extra-players-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 40px;
+    }
+
+    .extra-players-box h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.45rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+      color: #fff;
+    }
+
+    .extra-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .extra-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 18px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .extra-item span {
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .extra-item strong {
+      color: var(--crimson-bright);
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 1.05rem;
+    }
+
+    /* Reglas Tácticas y Comunicación */
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .rule-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 28px;
+      border-radius: 8px;
+    }
+
+    .rule-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .rule-card p {
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+    }
+
+    .alert-box {
+      margin-top: 32px;
+      background: var(--gold-bg);
+      border: 1px solid rgba(212, 163, 56, 0.45);
+      border-radius: 8px;
+      padding: 28px;
+    }
+
+    .alert-box h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.35rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+
+    .alert-box p {
+      color: #f1e6cc;
+      font-size: 1rem;
+    }
+
+    .chat-example {
       display: inline-block;
       margin-top: 12px;
-      padding: 4px 10px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(212, 163, 56, 0.5);
+      padding: 8px 16px;
       border-radius: 4px;
-      font-size: 0.8rem;
-      color: #cbd2d9;
-    }
-
-    .cta-box {
-      text-align: center;
-      background: radial-gradient(circle at center, rgba(184, 29, 36, 0.18) 0%, var(--bg-surface) 80%);
-      border: 1px solid var(--border-crimson);
-      border-radius: 12px;
-      padding: 64px 24px;
-    }
-
-    .cta-box h2 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 16px;
-    }
-
-    .cta-box p {
-      color: var(--text-secondary);
-      max-width: 550px;
-      margin: 0 auto 32px;
-    }
-
-    .specs {
-      margin-top: 24px;
-      font-size: 0.85rem;
-      color: #6c7380;
+      font-family: monospace;
+      font-size: 0.95rem;
+      color: #ffd670;
     }
 
     footer {
@@ -380,9 +407,8 @@
       font-size: 0.9rem;
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 768px) {
       .nav-links { display: none; }
-      .split-layout { grid-template-columns: 1fr; padding: 24px; }
     }
   </style>
 </head>
@@ -390,6 +416,7 @@
 
   <div class="noise-overlay"></div>
 
+  <!-- Navegación -->
   <nav>
     <a href="#inicio" class="brand">
       <span class="brand-dot"></span>
@@ -397,129 +424,134 @@
     </a>
     <ul class="nav-links">
       <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#juego">El Juego</a></li>
-      <li><a href="#entidades">Entidades</a></li>
-      <li><a href="#equipo">Grupo B</a></li>
-      <li><a href="#descargar">Descargar</a></li>
+      <li><a href="#grupos">5 Grupos</a></li>
+      <li><a href="#adicionales">Jugadores +15</a></li>
+      <li><a href="#reglas">Reglas y Comms</a></li>
     </ul>
   </nav>
 
+  <!-- Portada -->
   <header id="inicio">
-    <div class="pill">TNT Asylum • Grupo B</div>
-    <h1>LAST ASYLUM</h1>
-    <p>Las puertas del pabellón psiquiátrico se han sellado desde adentro. Explora los pasillos en ruinas, administra tus recursos y descubre qué ocurrió realmente antes de perder la cordura.</p>
-    <div class="hero-actions">
-      <a href="#descargar" class="btn-primary">Jugar / Descargar</a>
-      <a href="#juego" class="btn-secondary">Explorar Historia</a>
-    </div>
+    <div class="pill">Plan Táctico Oficial • Grupo B</div>
+    <h1>ELIXIR RACE</h1>
+    <p>Distribución de escuadrones, objetivos por minuto y protocolo de comunicación para el equipo.</p>
+    <a href="#grupos" class="btn-primary">Ver Asignación de Grupos</a>
   </header>
 
-  <section id="juego">
+  <!-- Sección 1: Los 5 Grupos -->
+  <section id="grupos">
     <div class="section-header">
-      <span class="section-kicker">01 // La Experiencia</span>
-      <h2>Sobrevive a la Oscuridad</h2>
+      <span class="section-kicker">01 // Despliegue Base</span>
+      <h2>Distribución del Equipo (15 Jugadores)</h2>
     </div>
 
-    <div class="grid-3">
-      <div class="card">
-        <span class="card-num">ARCHIVO 01 • NARRATIVA</span>
-        <h3>El Incidente de 1984</h3>
-        <p>Clausurado tras un experimento fallido, el recinto vuelve a emitir señales de radio décadas después. Tú entras a recuperar los registros perdidos.</p>
+    <div class="intro-callout">
+      <strong>Equipo:</strong> para <strong>Elixir Race</strong> nos dividiremos en <strong>5 grupos</strong>. Antes de comenzar, cada jugador tendrá asignado su grupo y su objetivo. Esta será la distribución si entramos 15 jugadores:
+    </div>
+
+    <div class="groups-grid">
+      <!-- Grupo 1 -->
+      <div class="group-card">
+        <div class="group-top">
+          <span class="group-title">1. Ataque</span>
+          <span class="player-badge">4 Jugadores</span>
+        </div>
+        <p>Al comenzar, ayudan a asegurar nuestro taller. Cuando se abra el <strong>Castillo 1</strong>, a los <strong>10 minutos</strong> de combate, van a conquistarlo y defenderlo.</p>
       </div>
-      <div class="card">
-        <span class="card-num">ARCHIVO 02 • SIGILO</span>
-        <h3>Sin Armas, Sin Salida</h3>
-        <p>No puedes enfrentar directamente lo que habita en los pabellones. Usa las sombras, controla tu respiración y raciona la batería de tu linterna.</p>
+
+      <!-- Grupo 2 -->
+      <div class="group-card">
+        <div class="group-top">
+          <span class="group-title">2. Norte</span>
+          <span class="player-badge">3 Jugadores</span>
+        </div>
+        <p>Primero capturan el <strong>Observatorio 7</strong>. Cuando se abran las <strong>Reliquias 2</strong>, <strong>un jugador</strong> mantiene la defensa del Observatorio y los <strong>otros dos</strong> van a las Reliquias.</p>
       </div>
-      <div class="card">
-        <span class="card-num">ARCHIVO 03 • ATMÓSFERA</span>
-        <h3>Tensión Psicológica</h3>
-        <p>Cada puerta metálica, susurro en los ductos y cambio de iluminación altera tu percepción. Mantén la calma para resolver los acertijos del recinto.</p>
+
+      <!-- Grupo 3 -->
+      <div class="group-card">
+        <div class="group-top">
+          <span class="group-title">3. Sur</span>
+          <span class="player-badge">3 Jugadores</span>
+        </div>
+        <p>Primero capturan el <strong>Portal 6</strong>. Cuando se abra el <strong>Altar 3</strong>, <strong>un jugador</strong> mantiene la defensa del Portal y los <strong>otros dos</strong> van al Altar.</p>
+      </div>
+
+      <!-- Grupo 4 -->
+      <div class="group-card">
+        <div class="group-top">
+          <span class="group-title">4. Defensa</span>
+          <span class="player-badge">3 Jugadores</span>
+        </div>
+        <p>Cada uno queda encargado de un edificio cercano a nuestra entrada:</p>
+        <ul class="sub-list">
+          <li><strong>Si comenzamos por la izquierda:</strong> taller 4 y tiendas 8 y 10.</li>
+          <li><strong>Si comenzamos por la derecha:</strong> taller 5 y tiendas 9 y 11.</li>
+        </ul>
+      </div>
+
+      <!-- Grupo 5 -->
+      <div class="group-card">
+        <div class="group-top">
+          <span class="group-title">5. Refuerzo</span>
+          <span class="player-badge">2 Jugadores</span>
+        </div>
+        <p>Se mantienen disponibles para ayudar al grupo que lo necesite. El <strong>comandante</strong> les indicará dónde ir.</p>
       </div>
     </div>
 
-    <div class="split-layout">
-      <div>
-        <span class="section-kicker">Mecánicas</span>
-        <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.8rem; margin-bottom: 14px; text-transform: uppercase;">Controles del Jugador</h3>
-        <p style="color: var(--text-secondary);">Diseñado para una respuesta rápida e inmersiva. Domina el movimiento silencioso y la interacción con el entorno para abrir nuevas alas del edificio.</p>
-      </div>
-      <div class="key-list">
-        <div class="key-item"><span>Desplazamiento</span> <kbd>W A S D</kbd></div>
-        <div class="key-item"><span>Correr / Sigilo</span> <kbd>SHIFT / CTRL</kbd></div>
-        <div class="key-item"><span>Linterna</span> <kbd>F</kbd></div>
-        <div class="key-item"><span>Interactuar / Leer notas</span> <kbd>E</kbd></div>
+    <!-- Jugadores adicionales -->
+    <div id="adicionales" class="extra-players-box">
+      <h3>Si entramos más de 15, los jugadores adicionales se distribuyen así:</h3>
+      <div class="extra-grid">
+        <div class="extra-item">
+          <span>Jugador 16</span>
+          <strong>Defensa</strong>
+        </div>
+        <div class="extra-item">
+          <span>Jugador 17</span>
+          <strong>Ataque</strong>
+        </div>
+        <div class="extra-item">
+          <span>Jugador 18</span>
+          <strong>Norte</strong>
+        </div>
+        <div class="extra-item">
+          <span>Jugador 19</span>
+          <strong>Sur</strong>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="entidades">
+  <!-- Sección 2: Reglas Generales y Comunicación -->
+  <section id="reglas" style="border-bottom: none;">
     <div class="section-header">
-      <span class="section-kicker">02 // Expedientes</span>
-      <h2>Personajes y Amenazas</h2>
+      <span class="section-kicker">02 // Protocolo de Combate</span>
+      <h2>Roles, Recolección y Apoyo</h2>
     </div>
 
-    <div class="grid-3">
-      <div class="card">
-        <span class="card-num">SUJETO • PROTAGONISTA</span>
-        <h3>El Investigador</h3>
-        <p>Equipado solo con una grabadora de cintas y una linterna de corto alcance. Su objetivo es documentar la verdad y salir con vida.</p>
+    <div class="rules-grid">
+      <div class="rule-card">
+        <h3>Asignación por Nivel y Fuerza</h3>
+        <p>Los <strong>niveles 22–24</strong> se encargarán principalmente de <strong>defender y recolectar</strong>. Los jugadores con <strong>mejores escuadrones</strong> se repartirán entre <strong>Ataque, Norte, Sur y Refuerzo</strong>.</p>
       </div>
-      <div class="card">
-        <span class="card-num">EXPEDIENTE #09</span>
-        <h3>El Director</h3>
-        <p>Sus notas de voz dispersas por las oficinas administrativas revelan cómo el aislamiento transformó al personal médico.</p>
-      </div>
-      <div class="card">
-        <span class="card-num">PELIGRO CRÍTICO</span>
-        <h3>Los Pacientes del Ala Sur</h3>
-        <p>Reaccionan al sonido de pasos rápidos y a la luz directa. Apagar la linterna y ocultarte a tiempo es tu única defensa.</p>
+
+      <div class="rule-card">
+        <h3>Recolección desde el Minuto 13</h3>
+        <p>Desde el <strong>minuto 13</strong>, quienes tengan un escuadrón disponible lo enviarán a <strong>recolectar</strong>, manteniendo siempre las guarniciones de los edificios.</p>
       </div>
     </div>
-  </section>
 
-  <section id="equipo">
-    <div class="section-header">
-      <span class="section-kicker">03 // Créditos</span>
-      <h2>Desarrollado por Grupo B</h2>
-    </div>
-
-    <div class="grid-3">
-      <div class="card">
-        <span class="card-num">INTEGRANTE 01</span>
-        <h3>Nombre del Integrante</h3>
-        <p>Arquitectura de código, mecánicas de jugador e inteligencia artificial.</p>
-        <span class="member-role">Programación</span>
-      </div>
-      <div class="card">
-        <span class="card-num">INTEGRANTE 02</span>
-        <h3>Nombre del Integrante</h3>
-        <p>Modelado de escenarios, iluminación atmosférica y diseño de niveles.</p>
-        <span class="member-role">Arte & Level Design</span>
-      </div>
-      <div class="card">
-        <span class="card-num">INTEGRANTE 03</span>
-        <h3>Nombre del Integrante</h3>
-        <p>Guion, diseño sonoro, interfaz de usuario y pruebas de calidad.</p>
-        <span class="member-role">Narrativa & Audio</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="descargar" style="border-bottom: none;">
-    <div class="cta-box">
-      <span class="section-kicker">Versión Jugable Disponible</span>
-      <h2>¿Te atreves a entrar?</h2>
-      <p>Descarga la última compilación desarrollada por el Grupo B y pon a prueba tus nervios en Last Asylum.</p>
-      <a href="#" class="btn-primary">Descargar Juego (v1.0)</a>
-      <div class="specs">
-        Plataforma: Windows 10/11 (64-bit) • RAM: 4 GB mín. • Espacio: 500 MB
-      </div>
+    <div class="alert-box">
+      <h3>Comunicación y Relevos</h3>
+      <p>Si un grupo encuentra enemigos demasiado fuertes, debe <strong>avisar y pedir apoyo</strong> antes de seguir atacando. El mensaje debe indicar el lugar exacto. <strong>Antes de abandonar una defensa, coordinen el relevo.</strong></p>
+      <div class="chat-example">Ejemplo: «Necesitamos refuerzo en Observatorio 7»</div>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 LAST ASYLUM — Proyecto desarrollado por TNT Asylum (Grupo B).</p>
+    <p>© 2026 TNT Asylum • Grupo B — Estrategia Oficial Elixir Race</p>
   </footer>
 
 </body>
